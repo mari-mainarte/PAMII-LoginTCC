@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LoginSIME.Views.LoginView"
+             Title="Login">
+    <VerticalStackLayout>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="250"/>
+                <ColumnDefinition Width="150" />
+            </Grid.ColumnDefinitions>
+            <Picker x:Name="tipoPerfil"
+                Title="ENTRAR COMO"
+                Grid.Column="0"
+                Grid.Row="0">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Escola</x:String>
+                        <x:String>Gestor Geral</x:String>
+                        <x:String>Gestor Departamento</x:String>
+                        <x:String>Funcionário</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+            <Entry Placeholder="CÓD. ETEC" Grid.Column="1" Grid.Row="1"></Entry>
+        </Grid>
+        <Entry Placeholder="USUÁRIO"></Entry>
+        <Entry Placeholder="SENHA"></Entry>
+        <Button Text="ENTRAR"></Button>
+        <Label Text="Esqueci a senha"></Label>
+    </VerticalStackLayout>
+</ContentPage>
