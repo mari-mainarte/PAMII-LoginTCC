@@ -11,7 +11,6 @@ public partial class LoginView : ContentPage
 
         usuarioViewModel = new UsuarioViewModel();
         BindingContext = usuarioViewModel;
-        
 
     }
 }

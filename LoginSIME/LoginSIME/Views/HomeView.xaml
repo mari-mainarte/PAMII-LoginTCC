@@ -8,5 +8,7 @@
             Text="Conteúdo"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
+
+        <Button Command="{Binding VoltarCommand}" Text="Sair da conta"></Button>
     </VerticalStackLayout>
 </ContentPage>
