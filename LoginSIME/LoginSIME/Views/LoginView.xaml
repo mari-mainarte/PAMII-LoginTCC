@@ -9,24 +9,23 @@
                 <ColumnDefinition Width="250"/>
                 <ColumnDefinition Width="150" />
             </Grid.ColumnDefinitions>
-            <Picker x:Name="tipoPerfil"
+            <Picker x:Name="tipoPerfilPicker"
                 Title="ENTRAR COMO"
                 Grid.Column="0"
-                Grid.Row="0">
-                <Picker.ItemsSource>
-                    <x:Array Type="{x:Type x:String}">
-                        <x:String>Escola</x:String>
-                        <x:String>Gestor Geral</x:String>
-                        <x:String>Gestor Departamento</x:String>
-                        <x:String>Funcionário</x:String>
-                    </x:Array>
-                </Picker.ItemsSource>
+                Grid.Row="0"
+                SelectedIndex="{Binding IdTipoPerfil}">
+                <Picker.Items>
+                    <x:String>Escola</x:String>
+                    <x:String>Administrador</x:String>
+                    <x:String>Técnico</x:String>
+                    <x:String>Funcionário</x:String>
+                </Picker.Items>
             </Picker>
-            <Entry Placeholder="CÓD. ETEC" Grid.Column="1" Grid.Row="1"></Entry>
+            <Entry Placeholder="CÓD. ETEC" Grid.Column="1" Grid.Row="1" Text="{Binding CodEscola}"></Entry>
         </Grid>
-        <Entry Placeholder="USUÁRIO"></Entry>
-        <Entry Placeholder="SENHA"></Entry>
-        <Button Text="ENTRAR"></Button>
-        <Label Text="Esqueci a senha"></Label>
+        <Entry Placeholder="RM" Text="{Binding Rm}"></Entry>
+        <Entry Placeholder="SENHA" IsPassword="True" Text="{Binding Senha}"></Entry>
+        <Button Text="ENTRAR" Command="{Binding LoginCommand}"></Button>
+        <Label Text="Esqueci a senha" HorizontalOptions="Center"></Label>
     </VerticalStackLayout>
 </ContentPage>
