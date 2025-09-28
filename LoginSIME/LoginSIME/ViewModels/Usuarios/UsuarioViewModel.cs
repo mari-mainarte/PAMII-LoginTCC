@@ -16,7 +16,7 @@ namespace LoginSIME.ViewModels.Usuarios
         public ICommand LoginCommand { get; set; }
 
         public UsuarioViewModel()
-        {
+        { 
             _uService = new UsuarioService();
             InicializarCommands();
         }
@@ -81,10 +81,16 @@ namespace LoginSIME.ViewModels.Usuarios
             {
 
                 LoginDTO loginDTO = new LoginDTO();
-                loginDTO.Rm = this.Rm;
-                loginDTO.Senha = this.Senha;
-                loginDTO.CodEscola = this.CodEscola;
-                loginDTO.IdTipoPerfil = this.IdTipoPerfil + 1;
+                loginDTO.Rm = Rm;
+                loginDTO.Senha = Senha;
+                loginDTO.CodEscola = CodEscola;
+                
+                if (IdTipoPerfil == 0) {
+                    await Application.Current.MainPage
+                        .DisplayAlert("Informação", "Insira o seu de tipo perfil!", "Ok");
+                }
+
+                loginDTO.IdTipoPerfil = IdTipoPerfil;
 
                 TokenDTO token = await _uService.PostLoginUsuario(loginDTO);
 
