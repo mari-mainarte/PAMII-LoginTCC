@@ -1,9 +1,17 @@
+using LoginSIME.ViewModels.Usuarios;
+
 namespace LoginSIME.Views;
 
 public partial class LoginView : ContentPage
 {
-	public LoginView()
-	{
-		InitializeComponent();
-	}
+    UsuarioViewModel usuarioViewModel;
+    public LoginView()
+    {
+        InitializeComponent();
+
+        usuarioViewModel = new UsuarioViewModel();
+        BindingContext = usuarioViewModel;
+        
+
+    }
 }

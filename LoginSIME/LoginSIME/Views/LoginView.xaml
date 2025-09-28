@@ -2,31 +2,122 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="LoginSIME.Views.LoginView"
-             Title="Login">
-    <VerticalStackLayout>
-        <Grid>
+             BackgroundColor="#44A1A0">
+
+
+    <VerticalStackLayout 
+        VerticalOptions="Center" 
+        HorizontalOptions="Center">
+
+        <Label 
+            Margin="20" 
+            FontFamily="MontserratMedium" 
+            FontSize="{OnIdiom Phone=30, Desktop=40}"
+            Text="LOGIN" 
+            TextColor="White" 
+            HorizontalOptions="Center"/>
+        <Grid 
+            VerticalOptions="Center" 
+            HorizontalOptions="CenterAndExpand">
+            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"/>
+            </Grid.RowDefinitions>
+            
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="250"/>
-                <ColumnDefinition Width="150" />
+                <ColumnDefinition Width="{OnIdiom Phone=150, Desktop=250}"/>
+                 <ColumnDefinition Width="160" />
             </Grid.ColumnDefinitions>
-            <Picker x:Name="tipoPerfil"
-                Title="ENTRAR COMO"
-                Grid.Column="0"
+
+            <Border 
+                Margin="0, 0 ,15, 0" 
+                Stroke="White" 
+                StrokeThickness="2" 
+                Grid.Column="0" 
                 Grid.Row="0">
-                <Picker.ItemsSource>
-                    <x:Array Type="{x:Type x:String}">
-                        <x:String>Escola</x:String>
-                        <x:String>Gestor Geral</x:String>
-                        <x:String>Gestor Departamento</x:String>
-                        <x:String>Funcionário</x:String>
-                    </x:Array>
-                </Picker.ItemsSource>
-            </Picker>
-            <Entry Placeholder="CÓD. ETEC" Grid.Column="1" Grid.Row="1"></Entry>
+                <Picker 
+                    x:Name="tipoPerfilPicker"
+                    TextColor="White"
+                    FontFamily="MontserratMedium"
+                    FontSize="14"
+                    WidthRequest="{OnIdiom Phone=200, Desktop=230}"
+                    HeightRequest="{OnIdiom Phone=50, Desktop=55}"
+                    VerticalOptions="Center"
+                    HorizontalOptions="StartAndExpand"
+                    SelectedIndex="{Binding IdTipoPerfil}">
+
+                    <Picker.Items>
+                    <x:String>ENTRAR COMO</x:String>
+                    <x:String>Escola</x:String>
+                    <x:String>Administrador</x:String>
+                    <x:String>Técnico</x:String>
+                    <x:String>Funcionário</x:String>
+                    </Picker.Items>
+                </Picker>
+            </Border>
+            
+            <Border 
+                Stroke="White" 
+                StrokeThickness="2" 
+                Grid.Column="1" 
+                Grid.Row="0">
+                <Entry 
+                    FontFamily="MontserratMedium" 
+                    Placeholder="CÓD. ETEC" 
+                    PlaceholderColor="White" 
+                    TextColor="White" 
+                    FontSize="15"
+                    HeightRequest="{OnIdiom Phone=50, Desktop=55}"
+                    VerticalOptions="Center"
+                    Text="{Binding CodEscola}"></Entry>
+            </Border>
+            
         </Grid>
-        <Entry Placeholder="USUÁRIO"></Entry>
-        <Entry Placeholder="SENHA"></Entry>
-        <Button Text="ENTRAR"></Button>
-        <Label Text="Esqueci a senha"></Label>
+        <Border 
+            Margin="0, 30, 0, 0" 
+            Stroke="White" 
+            StrokeThickness="2">
+            <Entry 
+                FontFamily="MontserratMedium" 
+                WidthRequest="{OnIdiom Phone=280, Desktop=400}" 
+                HeightRequest="{OnIdiom Phone=50, Desktop=55}" 
+                Placeholder="RM" 
+                TextColor="White" 
+                PlaceholderColor="White" 
+                Text="{Binding Rm}"></Entry>
+        </Border>
+        <Border 
+            Margin="0, 30, 0, 0" 
+            Stroke="White" 
+            StrokeThickness="2">
+            <Entry 
+                FontFamily="MontserratMedium" 
+                WidthRequest="{OnIdiom Phone=280, Desktop=400}" 
+                HeightRequest="{OnIdiom Phone=50, Desktop=55}" 
+                Placeholder="SENHA" 
+                TextColor="White" 
+                PlaceholderColor="White" 
+                IsPassword="True" 
+                Text="{Binding Senha}"></Entry>
+        </Border>
+
+        <Button 
+            WidthRequest="{OnIdiom Phone=205, Desktop=390}" 
+            HeightRequest="{OnIdiom Phone=45, Desktop=50}" 
+            Margin="0,50,0,0" 
+            CornerRadius="15" 
+            BackgroundColor="#fff" 
+            TextColor="#44A1A0" 
+            Text="ENTRAR" 
+            Command="{Binding LoginCommand}">
+        </Button>
+        
+        <Label 
+            FontFamily="MontserratMedium" 
+            Margin="0,20,0,20" 
+            Text="Esqueci a senha" 
+            TextColor="White" 
+            HorizontalOptions="Center"></Label>
+        
     </VerticalStackLayout>
 </ContentPage>
