@@ -47,11 +47,11 @@
                     SelectedIndex="{Binding IdTipoPerfil}">
 
                     <Picker.Items>
-                    <x:String>ENTRAR COMO</x:String>
-                    <x:String>Escola</x:String>
-                    <x:String>Administrador</x:String>
-                    <x:String>Técnico</x:String>
-                    <x:String>Funcionário</x:String>
+                        <x:String>ENTRAR COMO</x:String>
+                        <x:String>Gestor Geral</x:String>
+                        <x:String>Gestor Departamento</x:String>
+                        <x:String>Funcionário</x:String>
+                        <x:String>Usuário Comum</x:String>
                     </Picker.Items>
                 </Picker>
             </Border>
