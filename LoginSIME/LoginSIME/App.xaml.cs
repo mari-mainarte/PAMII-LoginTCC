@@ -1,4 +1,6 @@
-﻿namespace LoginSIME
+﻿using LoginSIME.Views;
+
+namespace LoginSIME
 {
     public partial class App : Application
     {
@@ -6,7 +8,7 @@
         {
             InitializeComponent();
 
-            MainPage = new AppShell();
+            MainPage = new HomeView();
             
         }
     }
