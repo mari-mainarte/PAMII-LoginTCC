@@ -14,6 +14,9 @@ namespace LoginSIME.ViewModels.Usuarios
     {
         private UsuarioService _uService;
         public ICommand LoginCommand { get; set; }
+        public ICommand LoginApiCommand { get; set; }
+
+        public ICommand VoltarCommand { get; set; }
 
         public UsuarioViewModel()
         { 
@@ -23,8 +26,19 @@ namespace LoginSIME.ViewModels.Usuarios
 
         public void InicializarCommands()
         {
-            LoginCommand = new Command(async () => await LoginUsuario());
+            LoginCommand = new Command(() => LoginUsuario());
+            LoginApiCommand = new Command(async () => await LoginApiUsuario());
+            VoltarCommand = new Command(() => VoltarPaginaLogin());
         }
+
+        #region variáveis de login
+
+        int tipoPerfil = 1; //Gestor Geral
+        string codigoEscola = "E01";
+        string rmUsuario = "123456";
+        string senhaUsuario = "senha123";
+
+        #endregion
 
         #region AtributosPropriedades
         private string rm = string.Empty;
@@ -75,7 +89,55 @@ namespace LoginSIME.ViewModels.Usuarios
 
         #region Métodos
 
-        public async Task LoginUsuario()
+        public async void LoginUsuario()
+        {
+            if (IdTipoPerfil == tipoPerfil) { 
+                if(CodEscola == codigoEscola)
+                {
+                    if(Rm == rmUsuario)
+                    {
+                        if(Senha == senhaUsuario)
+                        {
+                           await Application.Current.MainPage
+                                .DisplayAlert("Informação", "Bem-vindo(a) user!", "Ok");
+
+                            Shell.Current.GoToAsync("//Home");
+                        }
+                        else
+                        {
+                            Application.Current.MainPage
+                                .DisplayAlert("Informação", "Senha incorreta!", "Ok");
+                        }
+
+                    }
+                    else
+                    {
+                        Application.Current.MainPage
+                        .DisplayAlert("Informação", "Usuário com esse rm não encontrado!", "Ok");
+                    }
+                }
+                else
+                {
+                    Application.Current.MainPage
+                        .DisplayAlert("Informação", "Código da escola não encontrado!", "Ok");
+                }
+            }
+            else
+            {
+                if (tipoPerfil == 0)
+                {
+                    Application.Current.MainPage
+                           .DisplayAlert("Informação", "Insira o seu de tipo perfil!", "Ok");
+                }
+                else
+                {
+                    Application.Current.MainPage
+                        .DisplayAlert("Informação", "Usuário com esse tipo perfil não encontrado!", "Ok");
+                }
+            }
+        }
+
+        public async Task LoginApiUsuario()
         {
             try
             {
@@ -98,7 +160,7 @@ namespace LoginSIME.ViewModels.Usuarios
                 if (token != null)
                 {
                     await Application.Current.MainPage
-                        .DisplayAlert("Informação", "Bem-vindo usuário!", "Ok");
+                        .DisplayAlert("Informação", "Bem-vindo(a) user!", "Ok");
 
                     await Shell.Current.GoToAsync("//Home");
                 }
@@ -114,6 +176,11 @@ namespace LoginSIME.ViewModels.Usuarios
                 await Application.Current.MainPage.DisplayAlert("Informação",
                         ex.Message + " Detalhes: " + ex.InnerException, "Ok");
             }
+        }
+
+        public void VoltarPaginaLogin()
+        {
+            Shell.Current.GoToAsync("//MainPage");
         }
 
         #endregion
