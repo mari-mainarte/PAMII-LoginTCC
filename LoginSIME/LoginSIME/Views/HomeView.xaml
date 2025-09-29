@@ -4,53 +4,56 @@
              x:Class="LoginSIME.Views.HomeView"
              Title="HomeView"
              BackgroundColor="#44A1A0">
-    <VerticalStackLayout>
-        <Label 
-            Text="HOME"
-            VerticalOptions="Center" 
-            HorizontalOptions="Start"
-            Margin="30"
-            FontSize="30"
-            TextColor="White"
-            />
-        <Label
-            Text="SIME"
-            FontSize="30"
-            Margin="0,0,0,30"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center"
-            TextColor="White"/>
-        
-        <Border WidthRequest="1000" BackgroundColor="White">
-           <Label
-            Text="O Sistema de Integrado de Manutenção Escolar (SIME) é um sistema criado para facilitar a gestão de manutenção em escolas. Com uma interface simples e acessível, permite registrar ordens de serviço, acompanhar tarefas em tempo real e manter tudo organizado em um só lugar. Funciona no computador e no celular, ajudando diretores, coordenadores e equipes técnicas a terem mais controle, agilidade e economia no cuidado com a infraestrutura escolar."
-            TextColor="Black"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center"
-            Margin="30"
-            FontSize="20"
-            WidthRequest="1000"
-            BackgroundColor="White"/>
-        </Border>
+    <ScrollView>
+        <VerticalStackLayout>
+            <Label 
+                Text="HOME"
+                VerticalOptions="Center" 
+                HorizontalOptions="Start"
+                Margin="30"
+                FontSize="30"
+                TextColor="White"
+                />
+            <Button Command="{Binding VoltarCommand}" Text="Sair da conta" Margin="0,0,0,5"></Button>
+            <Label
+                Text="SIME"
+                FontSize="30"
+                Margin="0,0,0,30"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center"
+                TextColor="White"/> 
 
-        <Label
-            Text="NEWO"
-            FontSize="30"
-            Margin="0,30,0,10"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center"
-            TextColor="White"/>
+            <Border WidthRequest="1000" BackgroundColor="White">
+                <Label
+                    Text="O Sistema de Integrado de Manutenção Escolar (SIME) é um sistema criado para facilitar a gestão de manutenção em escolas. Com uma interface simples e acessível, permite registrar ordens de serviço, acompanhar tarefas em tempo real e manter tudo organizado em um só lugar. Funciona no computador e no celular, ajudando diretores, coordenadores e equipes técnicas a terem mais controle, agilidade e economia no cuidado com a infraestrutura escolar."
+                    TextColor="Black"
+                    VerticalOptions="Center" 
+                    HorizontalOptions="Center"
+                    Margin="30"
+                    FontSize="20"
+                    WidthRequest="1000"
+                    BackgroundColor="White"/>
+            </Border>
 
-        <Border Margin="0,10,0,0" WidthRequest="1000" BackgroundColor="White">
-          <Label
-            Text="Somos a NeWo, uma empresa de tecnologia dedicada ao desenvolvimento de soluções inovadoras que contribuem para a melhoria da qualidade dos serviços em diferentes setores. Nosso objetivo é criar softwares eficientes, intuitivos e que realmente façam a diferença no dia a dia das pessoas e instituições. Acreditamos que a tecnologia deve ser acessível, funcional e voltada para resolver problemas reais com inteligência e organização."
-            TextColor="Black"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center"
-            Margin="30"
-            FontSize="20"
-            WidthRequest="1000"
-            BackgroundColor="White"/>
-        </Border>
-    </VerticalStackLayout>
+            <Label
+                Text="NEWO"
+                FontSize="30"
+                Margin="0,30,0,10"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center"
+                TextColor="White"/>
+
+            <Border Margin="0,10,0,0" WidthRequest="1000" BackgroundColor="White">
+                <Label
+                    Text="Somos a NeWo, uma empresa de tecnologia dedicada ao desenvolvimento de soluções inovadoras que contribuem para a melhoria da qualidade dos serviços em diferentes setores. Nosso objetivo é criar softwares eficientes, intuitivos e que realmente façam a diferença no dia a dia das pessoas e instituições. Acreditamos que a tecnologia deve ser acessível, funcional e voltada para resolver problemas reais com inteligência e organização."
+                    TextColor="Black"
+                    VerticalOptions="Center" 
+                    HorizontalOptions="Center"
+                    Margin="30"
+                    FontSize="20"
+                    WidthRequest="1000"
+                    BackgroundColor="White"/>
+            </Border>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

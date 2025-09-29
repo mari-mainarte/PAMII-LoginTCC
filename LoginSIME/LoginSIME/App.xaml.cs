@@ -8,7 +8,7 @@ namespace LoginSIME
         {
             InitializeComponent();
 
-            MainPage = new HomeView();
+            MainPage = new AppShell();
             
         }
     }
