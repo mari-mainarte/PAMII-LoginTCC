@@ -1,4 +1,6 @@
-﻿namespace LoginSIME
+﻿using LoginSIME.Views;
+
+namespace LoginSIME
 {
     public partial class App : Application
     {
